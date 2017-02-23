@@ -27,7 +27,8 @@ class Alouette
     je_te_plumerai = "Je te plumerai "
     alouette = "Alouette!"
     aaah = "A-a-a-ah"
-    et = "Et "
+    # this returns an array of the single lines
+    and_the_body_parts = Alouette.lines_for_verse(how_many_verses)
     
 
   end
