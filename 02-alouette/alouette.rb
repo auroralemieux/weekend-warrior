@@ -24,6 +24,11 @@ class Alouette
   end
 
   def self.verse(how_many_verses)
+    je_te_plumerai = "Je te plumerai "
+    alouette = "Alouette!"
+    aaah = "A-a-a-ah"
+    et = "Et "
+    
 
   end
 
