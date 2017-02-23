@@ -1,0 +1,5 @@
+task :default => [:test]
+
+task :test do
+  ruby "alouette_spec.rb"
+end
