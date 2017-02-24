@@ -54,9 +54,18 @@ class Alouette
   end
 
   def self.sing
-    song_lyrics = File.open("alouette_lyrics.txt", "r").to_s
+    # binding.pry
+    lyrics = ""
+    File.open("alouette_lyrics.txt", "r") do |f|
+      f.each_line do |line|
+        lyrics << line
+      end
+    end
+    # binding.pry
+    lyrics = lyrics.strip
+    return lyrics
   end
 
 end
-
-Alouette.verse(2)
+Alouette.sing
+# Alouette.verse(2)
