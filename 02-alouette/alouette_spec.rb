@@ -36,76 +36,76 @@ describe Alouette do
       Alouette.verse(3).must_be_kind_of String
     end
   #
-  #   it "first two lines begin with 'Je te plumerai'" do
-  #     skip
-  #     lines = Alouette.verse(3).split("\n")
+    it "first two lines begin with 'Je te plumerai'" do
+      # skip
+      lines = Alouette.verse(3).split("\n")
+
+      # If there aren't at least 2 lines, don't continue
+      lines.length.must_be :>, 1, "Not enough lines for this test"
+
+      2.times do |i|
+        lines[i].start_with?('Je te plumerai').must_equal true, "Line #{i} didn't start with 'Je te plumerai'"
+      end
+    end
   #
-  #     # If there aren't at least 2 lines, don't continue
-  #     lines.length.must_be :>, 1, "Not enough lines for this test"
+    it "last three lines are 'Alouette! Alouette! A-a-a-ah'" do
+      # skip
+      lines = Alouette.verse(3).split("\n")
+
+      # If there aren't at least 3 lines, don't continue
+      lines.length.must_be :>, 2, "Not enough lines for this test"
+
+      lines[-3].must_equal "Alouette!"
+      lines[-2].must_equal "Alouette!"
+      lines[-1].must_equal "A-a-a-ah"
+    end
   #
-  #     2.times do |i|
-  #       lines[i].start_with?('Je te plumerai').must_equal true, "Line #{i} didn't start with 'Je te plumerai'"
-  #     end
-  #   end
-  #
-  #   it "last three lines are 'Alouette! Alouette! A-a-a-ah'" do
-  #     skip
-  #     lines = Alouette.verse(3).split("\n")
-  #
-  #     # If there aren't at least 3 lines, don't continue
-  #     lines.length.must_be :>, 2, "Not enough lines for this test"
-  #
-  #     lines[-3].must_equal "Alouette!"
-  #     lines[-2].must_equal "Alouette!"
-  #     lines[-1].must_equal "A-a-a-ah"
-  #   end
-  #
-  #   it "middle lines begin with 'Et ' and end with '!'" do
-  #     skip
-  #     lines = Alouette.verse(3).split("\n")
-  #
-  #     # If there aren't at least 6 lines, don't continue
-  #     lines.length.must_be :>, 5, "Not enough lines for this test"
-  #
-  #     # Slice off the first 2 and last 3 lines
-  #     lines = lines[2, lines.length-5]
-  #
-  #     lines.each do |line|
-  #       line.start_with?("Et ").must_equal true, "Inner line didn't start with 'Et '"
-  #       line.end_with?("!").must_equal true, "Inner line didn't end with '!'"
-  #     end
-#     end
+    it "middle lines begin with 'Et ' and end with '!'" do
+      # skip
+      lines = Alouette.verse(3).split("\n")
+
+      # If there aren't at least 6 lines, don't continue
+      lines.length.must_be :>, 5, "Not enough lines for this test"
+
+      # Slice off the first 2 and last 3 lines
+      lines = lines[2, lines.length-5]
+
+      lines.each do |line|
+        line.start_with?("Et ").must_equal true, "Inner line didn't start with 'Et '"
+        line.end_with?("!").must_equal true, "Inner line didn't end with '!'"
+      end
+    end
 #
-#     it "generates the third verse" do
-#       skip
-#       expected_verse = <<-__END_VERSE__
-#       Je te plumerai les yeux.
-        # Je te plumerai les yeux.
-        # Et les yeux!
-        # Et les yeux!
-        # Et le bec!
-        # Et le bec!
-        # Et la tête!
-        # Et la tête!
-        # Alouette!
-        # Alouette!
-        # A-a-a-ah
-#       __END_VERSE__
-#       expected_verse.strip!
-#       Alouette.verse(2).must_equal expected_verse
-#     end
+    it "generates the third verse" do
+      skip
+      expected_verse = <<-__END_VERSE__
+      Je te plumerai les yeux.
+        Je te plumerai les yeux.
+        Et les yeux!
+        Et les yeux!
+        Et le bec!
+        Et le bec!
+        Et la tête!
+        Et la tête!
+        Alouette!
+        Alouette!
+        A-a-a-ah
+      __END_VERSE__
+      expected_verse.strip!
+      Alouette.verse(2).must_equal expected_verse
+    end
   end
 #
-#   describe "sing" do
-#     # Load the canonical lyrics from disk
-#     let(:expected_lyrics) do
-#       File.read(File.dirname(__FILE__) + '/alouette_lyrics.txt').strip
-#     end
+  describe "sing" do
+    # Load the canonical lyrics from disk
+    let(:expected_lyrics) do
+      File.read(File.dirname(__FILE__) + '/alouette_lyrics.txt').strip
+    end
 #
-#     it "returns a string" do
-#       skip
-#       Alouette.sing.must_be_kind_of String
-#     end
+    it "returns a string" do
+      # skip
+      Alouette.sing.must_be_kind_of String
+    end
 #
 #     it "begins and ends with the refrain" do
 #       skip
@@ -119,5 +119,5 @@ describe Alouette do
 #       skip
 #       Alouette.sing.must_equal expected_lyrics
 #     end
-#   end
+  end
 end
